@@ -1,0 +1,10 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>CCEL 홈페이지 시안 3종</title><style>
+body{margin:0;font-family:'Malgun Gothic',system-ui,sans-serif;background:#eee;display:flex;flex-direction:column;height:100vh}
+.bar{display:flex;gap:8px;align-items:center;padding:10px 14px;background:#13235B;color:#fff;flex-wrap:wrap}
+.bar b{margin-right:10px} button{border:0;border-radius:6px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer;background:#2b3d7c;color:#fff}
+button.on{background:#f0b429;color:#13235B;font-weight:700} #note{margin-left:auto;font-size:13px;opacity:.9}
+iframe{flex:1;border:0;width:100%;background:#fff}</style></head><body>
+<div class="bar"><b>CCEL 홈페이지 시안 3종</b><button data-src="3_awesomic.html" data-note="서체 Bricolage Grotesque + DM Sans, 주황과 자홍 빛이 번지는 밝은 회색 바탕">Awesomic</button><button data-src="8_intercom.html" data-note="서체 Schibsted Grotesk, 크림색에서 리넨색으로 내려가는 바탕, 큰 제목">Intercom</button><button data-src="2_mercury.html" data-note="서체 Archivo(넓은 폭) + Inter, 위쪽에 코발트 빛이 도는 어두운 남색 바탕">Mercury</button><span id="note"></span></div><iframe id="f"></iframe>
+<script>const b=[...document.querySelectorAll('button')],f=document.getElementById('f'),n=document.getElementById('note');
+function go(x){b.forEach(y=>y.classList.toggle('on',y===x));f.src=x.dataset.src+'?t='+Date.now();n.textContent=x.dataset.note;}
+b.forEach(x=>x.onclick=()=>go(x));go(b[0]);function step(d){const i=b.findIndex(y=>y.classList.contains('on'));go(b[(i+d+b.length)%b.length]);}document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1);});</script></body></html>
